@@ -19,8 +19,7 @@ class VigenereCipheringMachine {
     
     if(!message || !key){throw Error;}
 
-    console.log(`type: ${this.type}, msg: ${message}, key: ${key}`);
-    
+    console.log(`type: ${this.type}, msg: ${message}, key: ${key}`)
     message=message.toLowerCase();
     let msgNoSpaces = message.split(" ").join("");
     key = key.toLowerCase();
@@ -77,7 +76,7 @@ class VigenereCipheringMachine {
     for(let i = 0; i< msgcodes.length; i++){
       if(this.alphabet.includes(msgNoSpaces[i])){
         let sub = msgcodes[i]-keycodes[i];
-        if(sub<0){res.push(sub+26)}else{res.push(sub)}
+        if(sub<=0){res.push(sub+26)}else{res.push(sub)}
      }else{res.push(msgcodes[i]);}
     }
     res = res.map(symbol=>{
@@ -97,4 +96,4 @@ class VigenereCipheringMachine {
   }
 }
 
- module.exports = VigenereCipheringMachine;
+module.exports = VigenereCipheringMachine;
